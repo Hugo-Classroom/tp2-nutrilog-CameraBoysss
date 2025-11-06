@@ -1,4 +1,5 @@
 import SwiftUI
+import LocalAuthentication
 
 struct RootView: View {
     // TODO: Cette partie sera vue en classe pour l'expliquer comme il faut
