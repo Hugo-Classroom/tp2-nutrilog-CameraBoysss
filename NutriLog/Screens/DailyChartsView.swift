@@ -2,7 +2,16 @@ import SwiftUI
 
 struct DailyChartsView: View {
     var body: some View {
-        Text("Vue Graphiques")
+        NavigationView {
+            VStack (alignment: .leading) {
+                
+                Text("Calories par repas")
+                
+                Spacer()
+                
+            }
+            .navigationTitle("Graphiques")
+        }
     }
 }
 

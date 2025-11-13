@@ -14,8 +14,6 @@ struct DailySummaryView: View {
     @State private var caloriesLeft: Int = 1250
     @State private var colorieConsumed: Int = 70
     
-    
-    
     @State private var proteinProgress = 0.4
     @State private var carbsProgress = 0.4
     @State private var fatProgress = 0.4
@@ -23,7 +21,6 @@ struct DailySummaryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
                 List() {
                     Section(header: Text("Calories")) {
                         
@@ -36,7 +33,7 @@ struct DailySummaryView: View {
                                     Text("\(caloriesLeft)")
                                         .fontWeight(.bold)
                                     Text("cal")
-                                        .foregroundStyle(Color(.gray))                                   
+                                        .foregroundStyle(Color(.gray))
                                 }
                             }
                             PercentageCircle(progress: Double(caloriesLeft) / Double(maxCalories), lineWidth: 8, color: Color.green)
@@ -66,21 +63,24 @@ struct DailySummaryView: View {
                     }
                     Section(header: Text("Déjeuner")) {
                         NavigationLink(destination: FoodDetailView()) {
-                            
                         }
                     }
                     Section(header: Text("Dîner")) {
-                        Text("")
+                        NavigationLink(destination: FoodDetailView()) {
+                        }
                         
                     }
                     Section(header: Text("Souper")) {
-                        Text("")
+                        NavigationLink(destination: FoodDetailView()) {
+                        }
                     }
                 }
             }
             .toolbar {
-                Button("", systemImage: "plus") {
-                    
+                NavigationLink {
+                    AddMealView()
+                } label: {
+                    .systemImage("plus")
                 }
                 .accentColor(Color(.orange))
             }
