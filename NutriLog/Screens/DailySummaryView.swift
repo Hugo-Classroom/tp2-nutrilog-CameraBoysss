@@ -10,9 +10,11 @@ struct Calories: Identifiable {
 
 struct DailySummaryView: View {
     
+    @State public var showAddMeal: Bool = false
+    
     private let maxCalories: Int = 2500
     @State private var caloriesLeft: Int = 1250
-    @State private var colorieConsumed: Int = 70
+    @State private var colorieConsumed: Int = 1250
     
     @State private var proteinProgress = 0.4
     @State private var carbsProgress = 0.4
@@ -68,7 +70,6 @@ struct DailySummaryView: View {
                     Section(header: Text("Dîner")) {
                         NavigationLink(destination: FoodDetailView()) {
                         }
-                        
                     }
                     Section(header: Text("Souper")) {
                         NavigationLink(destination: FoodDetailView()) {
@@ -77,14 +78,14 @@ struct DailySummaryView: View {
                 }
             }
             .toolbar {
-                NavigationLink {
-                    AddMealView()
-                } label: {
-                    .systemImage("plus")
+                Button("", systemImage: "plus") {
+                    showAddMeal = true
                 }
-                .accentColor(Color(.orange))
+                
             }
             .navigationTitle("Aujourd'hui")
+        }.sheet(isPresented: $showAddMeal) {
+            AddMealView(showAddMeal: $showAddMeal)
         }
     }
 }

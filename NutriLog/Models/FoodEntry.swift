@@ -20,4 +20,17 @@ class FoodEntry {
         guard let food else { return 0 }
         return food.calories * servingSize / 100
     }
+    var fat: Double {
+        guard let food else { return 0 }
+        return food.fat * servingSize / 100
+    }
+    var carb: Double {
+        guard let food else { return 0 }
+        return food.carbs * servingSize / 100
+    }
+    var protein: Double {
+        guard let food else { return 0 }
+        return food.protein * servingSize / 100
+    }
+    
 }
